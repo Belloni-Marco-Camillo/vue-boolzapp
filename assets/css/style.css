@@ -13,11 +13,11 @@
 
 .navborad {
     background-color: gainsboro;
-    height: 100px;
+    border-right: 0.01rem solid gray;
 }
 
 .chatboard {
-    background-color: blue;
+    background-color: gainsboro;
 }
 
 .avatarMio {
@@ -47,4 +47,14 @@
     line-height: 100px;
     margin: 0 20px 0 20px;
     color: gray;
+}
+
+
+/* fine parte sinistra dell'header */
+
+.chatboard h3 {
+    line-height: 100px;
+    margin-left: 1rem;
+    font-weight: 600;
+    color: rgb(62, 61, 61);
 }
