@@ -19,44 +19,76 @@
 
 <body>
 
-
-    <div class="container containerCostum">
+    <div id="app">
         <header>
-            <div class="row headerCostum">
-                <div class="col-4 navborad d-flex justify-content-between">
-                    <div class="d-flex avatarMioCostum">
-                        <div class="d-flex">
-                            <img src="./assets/img/avatar_io.jpg" alt="mio avatar_io" class="img-fluid avatarMio">
+            <div class="container">
+                <div class="row headerCostum">
+                    <div class="col-4 navborad d-flex justify-content-between">
+                        <div class="d-flex avatarMioCostum">
+                            <div class="d-flex">
+                                <img src="./assets/img/avatar_io.jpg" alt="mio avatar_io" class="img-fluid avatarMio">
+                            </div>
+                            <h3>Marco</h3>
                         </div>
-                        <h3>nome</h3>
+                        <div class="iconCostum d-flex">
+                            <i class="fa-solid fa-message fa-2x"></i>
+                            <i class="fa-solid fa-ellipsis-vertical fa-2x"></i>
+                        </div>
                     </div>
-                    <div class="iconCostum d-flex">
-                        <i class="fa-solid fa-message fa-2x"></i>
-                        <i class="fa-solid fa-ellipsis-vertical fa-2x"></i>
-                    </div>
-                </div>
-                <!-- fine parte sinistra header -->
+                    <!-- fine parte sinistra header -->
 
-                <div class="col-8 chatboard d-flex justify-content-between">
-                    <div class="d-flex">
-                        <img src="./assets/img/avatar_2.jpg" alt="mio avatar_io" class="img-fluid avatarMio">
-                        <h3>nome</h3>
-                    </div>
-                    <div class="iconCostum">
-                        <i class="fa-solid fa-magnifying-glass fa-2x"></i>
-                        <i class="fa-solid fa-paperclip fa-2x"></i>
-                        <i class="fa-solid fa-ellipsis-vertical fa-2x"></i>
+                    <div class="col-8 chatboard d-flex justify-content-between">
+                        <div class="d-flex">
+                            <img :src="contacts[activeChat].avatar" alt="mio avatar_io" class="img-fluid avatarMio">
+                            <h3>{{contacts[activeChat].name}}</h3>
+                        </div>
+                        <div class="iconCostum">
+                            <i class="fa-solid fa-magnifying-glass fa-2x"></i>
+                            <i class="fa-solid fa-paperclip fa-2x"></i>
+                            <i class="fa-solid fa-ellipsis-vertical fa-2x"></i>
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- <div class="container bg-blue"></div>
+            <div class="container bg-red"></div> -->
+
         </header>
+        <!-- fine parte header -->
 
+        <main>
+            <div class="container d-flex">
+                <section class="sectionLeft col-4">
+                    <div class="notification d-flex">
+                    </div>
+                    <ul>
+                        <li class="row fs-5 border-bottom p-2" v-for="(contact, index) in contacts" @click="selectContact(index)">
+                            <div class="d-flex align-items-center">
+                                <div class="col-2"><img class="img-fluid costumImg" :src="contact.avatar"></div>
+                                <span style="margin-left: 20px; font-weight: 700;">{{contact.name}}</span>
+                            </div>
+                            <div class="col-2 ">
+                            </div>
+                        </li>
+                    </ul>
+                </section>
 
-        <main></main>
+                <section class="sectionRight col-8 " v-for="(contact, index) in contacts">
+                    <div class="bodyChat">{{contacts[activeChat].messages}}</div>
+                    <div class="footerBody d-flex ">
+                        <div class="keyBoard d-flex col-2 "><i class="fa-solid fa-face-smile fa-2x "></i></div>
+                        <div class="inputBoard d-flex col-8 ">
+                            <input type="text ">
+                        </div>
+                        <div class="audioBoard d-flex col-2"><i class="fa-solid fa-microphone fa-2x "></i></div>
+                    </div>
+                </section>
+            </div>
 
-
-        <footer></footer>
+        </main>
     </div>
+
+
 
 
 
@@ -64,7 +96,7 @@
     <!-- CDN Vue JS -->
     <script src='https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js'></script>
     <!-- qui sotto va messo il file javascript -->
-    <script src="./assets/js/app.js"></script>
+    <script src="./assets/js/app.js "></script>
 
 </body>
 
