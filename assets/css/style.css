@@ -1,0 +1,50 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.containerCostum {
+    height: 80vh;
+    background-color: green;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+}
+
+.navborad {
+    background-color: gainsboro;
+    height: 100px;
+}
+
+.chatboard {
+    background-color: blue;
+}
+
+.avatarMio {
+    margin-top: 25px;
+    height: 50px;
+    width: 50px;
+    background-color: blue;
+    border-radius: 100%;
+}
+
+.avatarMioCostum {
+    height: 100px;
+}
+
+.avatarMioCostum h3 {
+    line-height: 100px;
+    margin-left: 1rem;
+    font-weight: 600;
+    color: rgb(62, 61, 61);
+}
+
+.iconCostum {
+    height: 100px;
+}
+
+.iconCostum i {
+    line-height: 100px;
+    margin: 0 20px 0 20px;
+    color: gray;
+}
