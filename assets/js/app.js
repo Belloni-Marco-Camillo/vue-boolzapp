@@ -179,15 +179,6 @@ const app = new Vue({
             let answer = { message: "ok!", status: 'received', date: 'randomDate' }
             this.contacts[this.activeChat].messages.push(answer)
         },
-        updateLocalStorage() {
-            const liEls = document.querySelectorAll("li")
-            let list = []
-            liEls.forEach(liEl => {
-                list.push({
-                    name: liEl.innerText,
-                    checked: liEl.classList.contains("checked")
-                })
-            })
-        }
+
     },
 });
