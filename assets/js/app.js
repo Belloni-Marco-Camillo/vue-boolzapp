@@ -2,6 +2,7 @@ const app = new Vue({
     el: '#app',
     data: {
         activeChat: 0,
+        newChat: "",
         contacts: [{
                 name: 'Michele',
                 avatar: './assets/img/avatar_1.jpg',
@@ -162,6 +163,31 @@ const app = new Vue({
         selectContact(index) {
             console.log("hai cliccato" + index);
             this.activeChat = index;
+        },
+        addSand() {
+            console.log('add new task')
+            console.log(this.newChat)
+            if (this.newChat === '') {
+                console.log("devi inserire il valore");
+            } else {
+                this.contacts[this.activeChat].messages.push({ message: this.newChat, status: 'sent', date: 'random' })
+                this.newChat = ''
+                setTimeout(this.answerMessage, 3000)
+            }
+        },
+        answerMessage() {
+            let answer = { message: "ok!", status: 'received', date: 'randomDate' }
+            this.contacts[this.activeChat].messages.push(answer)
+        },
+        updateLocalStorage() {
+            const liEls = document.querySelectorAll("li")
+            let list = []
+            liEls.forEach(liEl => {
+                list.push({
+                    name: liEl.innerText,
+                    checked: liEl.classList.contains("checked")
+                })
+            })
         }
     },
 });
