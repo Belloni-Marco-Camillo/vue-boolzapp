@@ -2,7 +2,6 @@ const app = new Vue({
     el: '#app',
     data: {
         activeChat: 0,
-        counter: 0,
         newChat: "",
         search: "",
         contacts: [{
@@ -166,7 +165,6 @@ const app = new Vue({
             console.log("hai cliccato" + index);
             this.activeChat = index;
         },
-
         addSand() {
             console.log('add new task')
             console.log(this.newChat)
@@ -183,17 +181,16 @@ const app = new Vue({
             this.contacts[this.activeChat].messages.push(answer)
         },
         deleteMessage(index) {
-            //const messaggio = this.contacts[this.activeChat].messages
-            //console.log(messaggio)
             this.contacts[this.activeChat].messages.splice(index, 1)
+        },
+        filterChat() {
+            this.contacts.forEach(contact => {
+                if (contact.name.toLowerCase().includes(this.search.toLowerCase())) {
+                    contact.visible = true
+                } else {
+                    contact.visible = false
+                }
+            });
         }
     },
-
-    computed: {
-        filterChat: function() {
-            return this.contacts.filter((contact) => {
-                return contact.name.toLowerCase().includes(this.search.toLowerCase())
-            })
-        }
-    }
 });

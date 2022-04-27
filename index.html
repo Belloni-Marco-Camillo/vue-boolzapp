@@ -70,14 +70,14 @@
                     <div class="boxsearch">
                         <div class="search d-flex">
                             <div class="col-3 searchIcon"><i class="fa-solid fa-magnifying-glass fa-2x"></i></div>
-                            <div class="col-9 searchText"><input type="text" v-model="search" placeholder="cerca o inizia una nuova chat"></div>
+                            <div class="col-9 searchText"><input type="text" v-model="search" placeholder="cerca o inizia una nuova chat" @keyup="filterChat"></div>
                         </div>
                     </div>
 
                     <div class="notification d-flex">
 
                         <ul>
-                            <li class="row fs-5 border-bottom p-2" v-for="(contact, index) in filterChat" @click="selectContact(index)" :class="activeChat === index ? 'active' : ''">
+                            <li class="row fs-5 border-bottom p-2" v-for="(contact, index) in contacts" v-if="contact.visible" @click="selectContact(index)" :class="activeChat === index ? 'active' : ''">
                                 <div class="d-flex align-items-center">
                                     <div class="col-2"><img class="img-fluid costumImg" :src="contact.avatar"></div>
                                     <span style="margin-left: 20px; font-weight: 700;">{{contact.name}}</span>
@@ -93,7 +93,7 @@
                     <div class="bodyChatTot">
                         <div class="bodyChat d-flex flex-column" v-for="(message, index) in contacts[activeChat].messages">
                             <div :class="message.status === 'sent' ? 'send' : 'received'">
-                                <p @click="deleteMessage(contacts[activeChat].messages, index)">{{message.message}} <br> {{message.date.substring(10,16)}}</p>
+                                <p @click="deleteMessage(index)">{{message.message}} <br> {{message.date.substring(10,16)}}</p>
                             </div>
                         </div>
                     </div>
