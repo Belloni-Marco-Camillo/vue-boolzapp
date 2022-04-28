@@ -75,6 +75,11 @@
         overflow-y: scroll;
     }
     
+    .notification ul {
+        width: 100%;
+        padding-left: 0;
+    }
+    
     .mute {
         display: flex;
         align-items: center;
@@ -127,10 +132,6 @@
         border: none;
         width: 100%;
         padding-left: 20px;
-    }
-    
-    .sectionLeft ul {
-        margin-left: -32px;
     }
     
     .sectionLeft li {
@@ -193,6 +194,7 @@
     
     .costumImg {
         border-radius: 100%;
+        max-width: 50px;
     }
     
     .send {
@@ -240,4 +242,15 @@
     
     .dropdown:hover .dropdown-content {
         display: block;
+    }
+    
+    .specifiche {
+        font-size: 14px;
+        margin-left: 20px;
+    }
+    
+    .contain-avatar,
+    .avatar {
+        height: 50px;
+        width: 100%;
     }

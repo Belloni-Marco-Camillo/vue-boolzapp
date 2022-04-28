@@ -166,18 +166,25 @@ const app = new Vue({
             this.activeChat = index;
         },
         addSand() {
-            console.log('add new task')
             console.log(this.newChat)
             if (this.newChat === '') {
                 console.log("devi inserire il valore");
             } else {
-                this.contacts[this.activeChat].messages.push({ message: this.newChat, status: 'sent', date: 'random' })
+                let now = new Date();
+                let datestring = now.toString()
+                let hour = datestring.substring(5, 30)
+                    //console.log(datestring);
+                    //console.log(hour);
+                this.contacts[this.activeChat].messages.push({ message: this.newChat, status: 'sent', date: hour })
                 this.newChat = ''
                 setTimeout(this.answerMessage, 3000)
             }
         },
         answerMessage() {
-            let answer = { message: "ok!", status: 'received', date: 'randomDate' }
+            let now = new Date();
+            let datestring = now.toString()
+            let hour = datestring.substring(5, 30)
+            let answer = { message: "ok!", status: 'received', date: hour }
             this.contacts[this.activeChat].messages.push(answer)
         },
         deleteMessage(index) {
