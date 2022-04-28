@@ -260,11 +260,19 @@
     }
     
     .header-avatar h3 {
-        padding-top: 25px;
+        padding-top: 40px;
         line-height: 5px;
     }
     
     .header-avatar p {
-        line-height: 0px;
+        line-height: 25px;
         padding-left: 15px;
+    }
+    
+    .notVisibleTyping {
+        display: none;
+    }
+    
+    .visibleTyping {
+        display: block;
     }

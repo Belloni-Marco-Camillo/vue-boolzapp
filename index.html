@@ -42,13 +42,20 @@
                             <img :src="contacts[activeChat].avatar" alt="mio avatar_io" class="img-fluid avatarMio">
                             <div class="header-avatar-text">
                                 <h3>{{contacts[activeChat].name}}</h3>
-                                <p>sta scrivendo...</p>
+                                <p id="typing" class="notVisibleTyping">sta scrivendo...</p>
                             </div>
                         </div>
-                        <div class="iconCostum">
+                        <div class="iconCostum d-flex">
                             <i class="fa-solid fa-magnifying-glass fa-2x"></i>
                             <i class="fa-solid fa-paperclip fa-2x"></i>
-                            <i class="fa-solid fa-ellipsis-vertical fa-2x"></i>
+                            <div class="dropdown">
+                                <i class="fa-solid fa-ellipsis-vertical fa-2x"></i>
+                                <div class="dropdown-content">
+                                    <p>Elimina messaggi</p>
+                                    <p @click="deleteAllMessage">Elimina chat</p>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>

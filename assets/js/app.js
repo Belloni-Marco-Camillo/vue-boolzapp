@@ -178,6 +178,8 @@ const app = new Vue({
                 this.contacts[this.activeChat].messages.push({ message: this.newChat, status: 'sent', date: hour })
                 this.newChat = ''
                 setTimeout(this.answerMessage, 3000)
+                setTimeout(this.typingOn, 0)
+                setTimeout(this.typingIn, 3000)
             }
         },
         answerMessage() {
@@ -191,8 +193,20 @@ const app = new Vue({
             let answer = { message: randanswer, status: 'received', date: hour }
             this.contacts[this.activeChat].messages.push(answer)
         },
+        typingOn() {
+            document.getElementById("typing").classList.remove('notVisibleTyping');
+        },
+        typingIn() {
+            document.getElementById("typing").classList.add('notVisibleTyping');
+        },
         deleteMessage(index) {
             this.contacts[this.activeChat].messages.splice(index, 1)
+        },
+        deleteAllMessage(index) {
+            console.log("elliminiamo tutto");
+            let emptyChat = []
+            console.log(emptyChat);
+            this.contacts[index].messages = emptyChat
         },
         filterChat() {
             this.contacts.forEach(contact => {
@@ -203,9 +217,5 @@ const app = new Vue({
                 }
             });
         },
-        randomChat() {
-
-
-        }
     },
 });
