@@ -254,3 +254,17 @@
         height: 50px;
         width: 100%;
     }
+    
+    .header-avatar {
+        height: 100px;
+    }
+    
+    .header-avatar h3 {
+        padding-top: 25px;
+        line-height: 5px;
+    }
+    
+    .header-avatar p {
+        line-height: 0px;
+        padding-left: 15px;
+    }

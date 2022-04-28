@@ -184,7 +184,11 @@ const app = new Vue({
             let now = new Date();
             let datestring = now.toString()
             let hour = datestring.substring(5, 30)
-            let answer = { message: "ok!", status: 'received', date: hour }
+            const randomChat = ['va bene', 'se lo dici tu', 'io non ho fatto niente!', 'ok!', 'no! scordatelo'];
+            let randanswerchoise = Math.floor(Math.random() * randomChat.length);
+            let randanswer = randomChat[randanswerchoise];
+            //console.log(rValue)
+            let answer = { message: randanswer, status: 'received', date: hour }
             this.contacts[this.activeChat].messages.push(answer)
         },
         deleteMessage(index) {
@@ -198,6 +202,10 @@ const app = new Vue({
                     contact.visible = false
                 }
             });
+        },
+        randomChat() {
+
+
         }
     },
 });

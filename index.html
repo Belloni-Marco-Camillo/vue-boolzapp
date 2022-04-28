@@ -38,9 +38,12 @@
                     <!-- fine parte sinistra header -->
 
                     <div class="col-8 chatboard d-flex justify-content-between">
-                        <div class="d-flex">
+                        <div class="d-flex header-avatar">
                             <img :src="contacts[activeChat].avatar" alt="mio avatar_io" class="img-fluid avatarMio">
-                            <h3>{{contacts[activeChat].name}}</h3>
+                            <div class="header-avatar-text">
+                                <h3>{{contacts[activeChat].name}}</h3>
+                                <p>sta scrivendo...</p>
+                            </div>
                         </div>
                         <div class="iconCostum">
                             <i class="fa-solid fa-magnifying-glass fa-2x"></i>
@@ -75,7 +78,6 @@
                     </div>
 
                     <div class="notification d-flex">
-
                         <ul>
                             <li class="row fs-5 border-bottom p-2" v-for="(contact, index) in contacts" v-if="contact.visible" @click="selectContact(index)" :class="activeChat === index ? 'active' : ''">
                                 <div class="d-flex align-items-center justify-content-between">
@@ -124,7 +126,7 @@
                         <div class="inputBoard d-flex col-8 ">
                             <input type="text" v-model="newChat" @keyup.enter="addSand">
                         </div>
-                        <div class="audioBoard d-flex col-2"><i class="fa-solid fa-microphone fa-2x "></i></div>
+                        <div class="audioBoard d-flex col-2"><i :class="this.newChat === '' ? 'fa-solid fa-microphone fa-2x' : 'fa-solid fa-paper-plane fa-2x'" @click="addSand"></i></div>
                     </div>
                 </section>
             </div>
