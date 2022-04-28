@@ -202,11 +202,11 @@ const app = new Vue({
         deleteMessage(index) {
             this.contacts[this.activeChat].messages.splice(index, 1)
         },
-        deleteAllMessage(index) {
+        deleteAllMessage() {
             console.log("elliminiamo tutto");
             let emptyChat = []
             console.log(emptyChat);
-            this.contacts[index].messages = emptyChat
+            this.contacts[this.activeChat].messages = emptyChat
         },
         filterChat() {
             this.contacts.forEach(contact => {
